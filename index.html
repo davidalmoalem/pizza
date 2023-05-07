@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .coteret{text-align: center;
+        font-size: 100px;
+        text-shadow: 1px 1px 2px rgb(0, 255, 136), 0 0 1em rgb(13, 156, 85), 0 0 0.2em rgb(0, 250, 129);;
+        }
+        
+        body {          
+background-image: url("/pizza/pizza.png");    
+background-repeat: no-repeat;       
+background-attachment: fixed;       
+background-size: cover;     
+}
+
+.inputs_box{
+    background-color: green;
+    width: 500;
+    position: absolute;
+    text-align: end;
+    border-radius: 8px;
+    right: 10px;
+    
+}
+.הזמן {
+width: 50px;
+height: 30px;
+font-weight: 100px;
+border-radius: 8px;
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAVID'S PIZZA</title>
+</head>
+<body>
+    <div>
+  <h1 class="coteret"> DAVID'S Pizza</h1>  
+  <div class="inputs_box">
+    <h1 class="bazektype"> :בחר סוג בצק</h1>
+    <input type="radio" id="classic" name="bazektype" value="0">
+    <label for="classic">בצק קלאסי</label>
+    <input type="radio" id="thin" name="bazektype" value="0">
+    <label for="thin">בצק דק</label>
+    <input type="radio" id="gluten-free" name="bazektype" value="5">
+    <label for="gluten-free">בצק ללא גלוטן</label>
+    <br/><h1 class="pizzatype"> :בחר את גודל הפיצה</h1>
+    <input type="radio" id="personal" name="pizzatype" value="55">
+    <label for="personal">אקסטרה לארג'</label>
+    <input type="radio" id="large" name="pizzatype" value="40">
+    <label for="large">לארג'</label>
+    <input type="radio" id="extralarge" name="pizzatype" value="25">
+    <label for="extralarge">אישית</label>
+    <h1>:בחר תוספות</h1>
+    <input type="checkbox" id="without_extras" name="extras" value="0">
+    <label for="without_extras">ללא תוספות</label><br>
+    <input type="checkbox" id="זיתים" name="extras" value="2">
+    <label for="זיתים">זיתים</label><br>
+    <input type="checkbox" id="תירס" name="extras" value="2">
+    <label for="תירס">תירס</label><br>
+    <input type="checkbox" id="בצל" name="extras" value="2">
+    <label for="בצל">בצל</label><br>
+    <input type="checkbox" id="אקסטרה גבינה" name="extras" value="5">
+    <label for="אקסטרה גבינה">אקסטרה גבינה</label><br>
+    <input type="checkbox" id="פלפל חריף" name="extras" value="2">
+    <label for="פלפל חריף">פלפל חריף</label><br>
+    <input type="checkbox" id="שומשום בקשה" name="extras" value="2">
+    <label for="שומשום בקשה">שומשום בקשה</label><br>
+ 
+ 
+  <button class="הזמן" onclick=" getPrice()">הזמן</button>
+<script>
+    function getPrice() {
+        var pizzatype = document.getElementsByName("pizzatype");
+        var extras = document.getElementsByName("extras");
+        var bazektype = document.getElementsByName("bazektype");
+        var x;
+        var y = 0;
+        var z;
+        var isTrue1 = false;
+        var isTrue2 = false;
+
+        for (i = 0; i < pizzatype.length; i++) {
+          if (pizzatype[i].checked) {
+            x = pizzatype[i].value;
+            isTrue1 = true;
+          }
+        }
+
+        for (i = 0; i < extras.length; i++) {
+          if (extras[i].checked) {
+            y += Number(extras[i].value);
+          }
+        }
+
+        for (i = 0; i < bazektype.length; i++) {
+          if (bazektype[i].checked) {
+            isTrue2 = true;
+          }
+        }
+
+        if (isTrue1 && isTrue2) {
+          z = Number(x) + y;
+          alert(z);
+        } else {
+          if (!isTrue1) {
+            alert("אתה חייב לבחור גודל פיצה");
+          } else if (!isTrue2) {
+            alert("אתה חייב לבחור סוג בצק");
+          }
+        }
+      }
+    </script>
+</div>
+  
+</body>
+</html>
